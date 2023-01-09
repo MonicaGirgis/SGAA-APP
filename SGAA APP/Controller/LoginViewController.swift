@@ -9,21 +9,19 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var mainView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        mainView.roundCorners(corners: [.bottomRight, .bottomLeft], radius: mainView.frame.width/2)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func didPressLogin(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "TabControllers")
+        vc?.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(vc ?? UIViewController(), animated: true)
     }
-    */
-
+    
 }

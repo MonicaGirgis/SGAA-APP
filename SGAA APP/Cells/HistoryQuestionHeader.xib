@@ -1,18 +1,66 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryQuestionHeader" customModule="SGAA_APP" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="JXB-tG-IUF"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="623" height="88"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S4u-3Z-lcD">
+                    <rect key="frame" x="16" y="17.5" width="26.5" height="24"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="RBU-sm-TBI"/>
+                        <constraint firstAttribute="height" constant="25" id="rJf-eI-04F"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu, 12 Mars 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mI-Zo-pww">
+                    <rect key="frame" x="57" y="18.5" width="517" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-down-arrow-png-2" translatesAutoresizingMaskIntoConstraints="NO" id="l3J-xB-EJE">
+                    <rect key="frame" x="582" y="16" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="hC4-u5-kqb"/>
+                        <constraint firstAttribute="width" constant="25" id="oWp-tX-ERY"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+            <constraints>
+                <constraint firstItem="9mI-Zo-pww" firstAttribute="leading" secondItem="S4u-3Z-lcD" secondAttribute="trailing" constant="16" id="Kbb-eP-ywz"/>
+                <constraint firstItem="l3J-xB-EJE" firstAttribute="leading" secondItem="9mI-Zo-pww" secondAttribute="trailing" constant="8" id="Z8P-ca-FIj"/>
+                <constraint firstItem="9mI-Zo-pww" firstAttribute="centerY" secondItem="S4u-3Z-lcD" secondAttribute="centerY" id="dZz-f9-vJg"/>
+                <constraint firstAttribute="trailing" secondItem="l3J-xB-EJE" secondAttribute="trailing" constant="16" id="eD8-pj-HYh"/>
+                <constraint firstItem="l3J-xB-EJE" firstAttribute="centerY" secondItem="S4u-3Z-lcD" secondAttribute="centerY" id="pw4-2M-lGk"/>
+                <constraint firstItem="l3J-xB-EJE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="u5G-0l-3ia"/>
+                <constraint firstItem="S4u-3Z-lcD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="vyO-xc-S96"/>
+                <constraint firstItem="S4u-3Z-lcD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="wuK-fR-u4w"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="289.13043478260875" y="-190.84821428571428"/>
         </view>
     </objects>
+    <resources>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
+        <image name="white-down-arrow-png-2" width="320" height="320"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

@@ -33,9 +33,16 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func didSelectAnbiaButton(_ sender: UIButton) {
+        
+//        let loginVc = LoginViewController()
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+        vc?.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(vc ?? UIViewController(), animated: true)
     }
     
     @IBAction func didSelectRosolButton(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+        _ = vc?.presentAsActionSheetPopup(in: self, draggable: true, preferedHeight: view.frame.height * 0.7)
     }
     
     @IBAction func didSelectKedsatButton(_ sender: UIButton) {
@@ -45,4 +52,3 @@ class WelcomeViewController: UIViewController {
     }
     
 }
-

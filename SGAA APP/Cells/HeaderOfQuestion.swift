@@ -8,13 +8,22 @@
 import UIKit
 
 class HeaderOfQuestion: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var contentView: UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        loadNib()
     }
-    */
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func loadNib() {
+        Bundle.main.loadNibNamed("HeaderOfQuestion", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+    
 }
