@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "606px-Coptic_cross-2.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}
