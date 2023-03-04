@@ -325,6 +325,8 @@
                     </view>
                     <connections>
                         <outlet property="mainView" destination="uce-P7-mPv" id="PYi-5s-yui"/>
+                        <outlet property="passwordField" destination="tMz-bg-Yc0" id="EbQ-SX-GJz"/>
+                        <outlet property="userNameField" destination="dyH-AJ-5PA" id="IOt-eS-emw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDv-P4-brI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

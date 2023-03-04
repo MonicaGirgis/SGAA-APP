@@ -40,6 +40,14 @@
 		3A7D7CA928F5823A0026B13A /* HistoryDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7CA728F5823A0026B13A /* HistoryDetailsTableViewCell.xib */; };
 		3A7D7CAB28F593500026B13A /* HistoryQuestionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D7CAA28F593500026B13A /* HistoryQuestionHeader.xib */; };
 		3A7D7CAD28F593600026B13A /* HistoryQuestionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D7CAC28F593600026B13A /* HistoryQuestionHeader.swift */; };
+		C543C9FE29B3E4930002ED84 /* SAGAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543C9F629B3E4930002ED84 /* SAGAA.swift */; };
+		C543CA0029B3E4930002ED84 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543C9F929B3E4930002ED84 /* Models.swift */; };
+		C543CA0129B3E4930002ED84 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543C9FB29B3E4930002ED84 /* APIError.swift */; };
+		C543CA0229B3E4930002ED84 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543C9FC29B3E4930002ED84 /* APIRoute.swift */; };
+		C543CA0329B3E4930002ED84 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543C9FD29B3E4930002ED84 /* APIHandler.swift */; };
+		C543CA0729B3E9FD0002ED84 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0529B3E9FC0002ED84 /* UserManager.swift */; };
+		C543CA0829B3E9FD0002ED84 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */; };
+		C543CA0A29B3EB450002ED84 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +88,14 @@
 		3A7D7CAC28F593600026B13A /* HistoryQuestionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryQuestionHeader.swift; sourceTree = "<group>"; };
 		605E0DD6CC908A28F29BA019 /* Pods_SGAA_APP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SGAA_APP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98512043549AEB060112BB9 /* Pods-SGAA APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGAA APP.debug.xcconfig"; path = "Target Support Files/Pods-SGAA APP/Pods-SGAA APP.debug.xcconfig"; sourceTree = "<group>"; };
+		C543C9F629B3E4930002ED84 /* SAGAA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAGAA.swift; sourceTree = "<group>"; };
+		C543C9F929B3E4930002ED84 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C543C9FB29B3E4930002ED84 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		C543C9FC29B3E4930002ED84 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
+		C543C9FD29B3E4930002ED84 /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		C543CA0529B3E9FC0002ED84 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				C576B3132951BEF40068CAE6 /* App Delegates */,
+				C543CA0429B3E9FC0002ED84 /* User Manager */,
 				3A356D0528EF08FF00CE88EC /* Cells */,
 				3A33AF7328B79AAB00C8EBFD /* Extensions */,
+				C543C9F529B3E4930002ED84 /* Network */,
 				3A7189FD28BA5CF800192E2D /* Controller */,
 				C576B3152951BF1B0068CAE6 /* Storyboards */,
 				C576B3142951BF0C0068CAE6 /* Assets */,
@@ -138,6 +156,7 @@
 		3A33AF7328B79AAB00C8EBFD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */,
 				3A33AF7428B79ACC00C8EBFD /* UIView + EXT.swift */,
 				3A103A3828F32C7D002672BE /* TableView + EXT.swift */,
 				3A56099A28F46681009AA01B /* UiViewController + Ext.swift */,
@@ -189,6 +208,35 @@
 				08D2A78B948256F3B051C7A5 /* Pods-SGAA APP.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C543C9F529B3E4930002ED84 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C543C9FA29B3E4930002ED84 /* APIRoute */,
+				C543C9F629B3E4930002ED84 /* SAGAA.swift */,
+				C543C9F929B3E4930002ED84 /* Models.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C543C9FA29B3E4930002ED84 /* APIRoute */ = {
+			isa = PBXGroup;
+			children = (
+				C543C9FB29B3E4930002ED84 /* APIError.swift */,
+				C543C9FC29B3E4930002ED84 /* APIRoute.swift */,
+				C543C9FD29B3E4930002ED84 /* APIHandler.swift */,
+			);
+			path = APIRoute;
+			sourceTree = "<group>";
+		};
+		C543CA0429B3E9FC0002ED84 /* User Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C543CA0529B3E9FC0002ED84 /* UserManager.swift */,
+				C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */,
+			);
+			path = "User Manager";
 			sourceTree = "<group>";
 		};
 		C576B3132951BEF40068CAE6 /* App Delegates */ = {
@@ -343,6 +391,7 @@
 				3A5609A628F4E250009AA01B /* HistoryTableViewCell.swift in Sources */,
 				3A56099B28F46681009AA01B /* UiViewController + Ext.swift in Sources */,
 				3A718A0328BA645800192E2D /* LoginViewController.swift in Sources */,
+				C543CA0029B3E4930002ED84 /* Models.swift in Sources */,
 				3A103A3928F32C7D002672BE /* TableView + EXT.swift in Sources */,
 				3A5609A228F4995F009AA01B /* RankingTableViewCell.swift in Sources */,
 				3A103A4A28F389D3002672BE /* ShopTableViewCell.swift in Sources */,
@@ -354,12 +403,19 @@
 				3A33AF7528B79ACC00C8EBFD /* UIView + EXT.swift in Sources */,
 				3A33AF5D28B792C600C8EBFD /* AppDelegate.swift in Sources */,
 				3A103A3728F324DA002672BE /* ReadingViewController.swift in Sources */,
+				C543CA0329B3E4930002ED84 /* APIHandler.swift in Sources */,
 				3A103A4128F37D9F002672BE /* HeaderOfQuestion.swift in Sources */,
+				C543CA0229B3E4930002ED84 /* APIRoute.swift in Sources */,
+				C543CA0729B3E9FD0002ED84 /* UserManager.swift in Sources */,
+				C543C9FE29B3E4930002ED84 /* SAGAA.swift in Sources */,
 				3A7D7CAD28F593600026B13A /* HistoryQuestionHeader.swift in Sources */,
 				3A56099D28F490DC009AA01B /* ProfileViewController.swift in Sources */,
 				3A33AF5F28B792C600C8EBFD /* SceneDelegate.swift in Sources */,
+				C543CA0A29B3EB450002ED84 /* Encodable+Extensions.swift in Sources */,
 				3A5609A928F4E67A009AA01B /* HistoryViewController.swift in Sources */,
 				3A103A4328F385A3002672BE /* SubmitView.swift in Sources */,
+				C543CA0129B3E4930002ED84 /* APIError.swift in Sources */,
+				C543CA0829B3E9FD0002ED84 /* UserDefaultsExtension.swift in Sources */,
 				3A56099F28F498EF009AA01B /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

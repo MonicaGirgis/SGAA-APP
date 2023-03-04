@@ -10,6 +10,8 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +19,22 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    
-    @IBAction func didPressLogin(_ sender: UIButton) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TabControllers")
-        vc?.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(vc ?? UIViewController(), animated: true)
+    private func login(userName: String, password: String) {
+        APIRoute.shared.fetchRequest(clientRequest: .login(username: userName, password: password), decodingModel: User.self) { [weak self] result in
+            switch result {
+            case .success(let data):
+                UserManager.shared.setUserData(user: data)
+                let vc = self?.storyboard?.instantiateViewController(withIdentifier: "TabControllers")
+                vc?.modalPresentationStyle = .fullScreen
+                self?.navigationController?.pushViewController(vc ?? UIViewController(), animated: true)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
+    @IBAction func didPressLogin(_ sender: UIButton) {
+        guard let name = userNameField.text, !name.isEmpty, let pass = passwordField.text, !pass.isEmpty else { return}
+        login(userName: name, password: pass)
+    }
 }
