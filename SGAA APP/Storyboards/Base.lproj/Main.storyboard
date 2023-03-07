@@ -667,9 +667,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tQL-Po-s7v">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tQL-Po-s7v">
                                 <rect key="frame" x="0.0" y="216" width="390" height="628"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="AJz-oc-Dt3" id="Fov-CQ-pwS"/>
                                     <outlet property="delegate" destination="AJz-oc-Dt3" id="Eav-Rz-X4U"/>
@@ -707,7 +707,7 @@
                                             <constraint firstItem="3jK-sQ-2Zj" firstAttribute="centerY" secondItem="hAn-ng-PEj" secondAttribute="centerY" id="eZq-EP-Jmb"/>
                                         </constraints>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWB-La-iD0">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWB-La-iD0">
                                         <rect key="frame" x="8" y="56" width="358" height="100"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -745,7 +745,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Reading" image="book.fill" catalog="system" selectedImage="book.fill" id="OtC-Fz-TXi"/>
                     <connections>
+                        <outlet property="dateLabel" destination="3jK-sQ-2Zj" id="JhF-v7-plu"/>
+                        <outlet property="dateView" destination="pQV-q6-sAq" id="yDt-Tp-2Gy"/>
+                        <outlet property="descTextView" destination="iWB-La-iD0" id="KrZ-Dr-NZM"/>
                         <outlet property="tableView" destination="tQL-Po-s7v" id="jlN-02-pou"/>
+                        <outlet property="textViewHeight" destination="cOx-2U-edy" id="Ljw-6O-RCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFu-Y6-ycF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -806,6 +810,9 @@
         <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="text.badge.checkmark.rtl" catalog="system" width="128" height="107"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

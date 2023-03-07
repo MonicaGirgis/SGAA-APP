@@ -75,13 +75,13 @@ class APIRoute{
                     completion(.success(responseModel))
                 }
             case 401:
-//                switch clientRequest{
-//                case .login:
-//                    break
-//                default:
-//                    guard UserManager.shared.isUserLoggedIn() else { return}
-//                    NotificationCenter.default.post(name: Notification.Name("unauthenticated"), object: nil)
-//                }
+                switch clientRequest{
+                case .login:
+                    break
+                default:
+                    guard UserManager.shared.isUserLoggedIn() else { return}
+                    NotificationCenter.default.post(name: Notification.Name("unauthenticated"), object: nil)
+                }
 //                break
                 completion(.failure(.unauthenticated))
            

@@ -48,6 +48,7 @@
 		C543CA0729B3E9FD0002ED84 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0529B3E9FC0002ED84 /* UserManager.swift */; };
 		C543CA0829B3E9FD0002ED84 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */; };
 		C543CA0A29B3EB450002ED84 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */; };
+		C5BE4FD529B7450A0098AC40 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BE4FD429B7450A0098AC40 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		C543CA0529B3E9FC0002ED84 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		C5BE4FD429B7450A0098AC40 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		3A33AF7328B79AAB00C8EBFD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C5BE4FD429B7450A0098AC40 /* String+Extensions.swift */,
 				C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */,
 				3A33AF7428B79ACC00C8EBFD /* UIView + EXT.swift */,
 				3A103A3828F32C7D002672BE /* TableView + EXT.swift */,
@@ -398,6 +401,7 @@
 				3A33AF6128B792C600C8EBFD /* WelcomeViewController.swift in Sources */,
 				3A103A4D28F3947D002672BE /* ShopViewController.swift in Sources */,
 				3A33AF6728B792C600C8EBFD /* SGAA_APP.xcdatamodeld in Sources */,
+				C5BE4FD529B7450A0098AC40 /* String+Extensions.swift in Sources */,
 				3A7D7CA828F5823A0026B13A /* HistoryDetailsTableViewCell.swift in Sources */,
 				3A103A3428F317D6002672BE /* AnswerTableViewCell.swift in Sources */,
 				3A33AF7528B79ACC00C8EBFD /* UIView + EXT.swift in Sources */,

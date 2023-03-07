@@ -35,7 +35,7 @@ protocol Endpoint{
 extension Endpoint {
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
-        components.path = urlSubFolder + path
+        components.path = "/" + path
         if !queryItems.isEmpty{
             components.queryItems = queryItems
         }

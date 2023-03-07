@@ -10,7 +10,8 @@ import UIKit
 class HistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tableView: UITableView!
-    private var questions: [Question] = [Question(quesestion: "Heelo", answers: ["true", "wrong"]), Question(quesestion: "Heelo", answers: ["true", "wrong"]), Question(quesestion: "Heelo", answers: ["true", "wrong", "fdfdkf"]), Question(quesestion: "Heelo", answers: ["true", "wrong","true", "wrong"])]
+    private var questions: [Question] = []
+//    [Question(quesestion: "Heelo", answers: ["true", "wrong"]), Question(quesestion: "Heelo", answers: ["true", "wrong"]), Question(quesestion: "Heelo", answers: ["true", "wrong", "fdfdkf"]), Question(quesestion: "Heelo", answers: ["true", "wrong","true", "wrong"])]
     
     override func awakeFromNib() {
         super.awakeFromNib()

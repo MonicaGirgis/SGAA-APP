@@ -38,3 +38,28 @@ struct User: Decodable {
     let token: String
     let expiresIn: Int
 }
+
+struct Reading: Decodable {
+    let questions: [Question]
+    let id: Int
+    let chapter: String
+    let date: String
+    let context: String
+}
+
+struct Question: Decodable {
+    let id: Int
+    let text: String
+    let answers: [Answer]
+}
+
+struct Answer: Decodable {
+    let text: String
+    let correct: Bool
+    let id: Int
+}
+
+struct AnswersModel {
+    var questionId: Int
+    var answerId: Int
+}

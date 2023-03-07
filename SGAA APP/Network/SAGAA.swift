@@ -9,9 +9,10 @@ import Foundation
 //import Alamofire
 
 enum SAGAA{
-    // MARK: - login
     case login(username: String, password: String)
-    
+    case getReading
+    case getProfile
+    case getHistory
     
 }
 
@@ -31,14 +32,22 @@ extension SAGAA: Endpoint{
     }
     
     var urlSubFolder: String {
-        return Bundle.main.urlSubFolder
+        ""
     }
     
     var path: String {
         switch self {
         case .login:
-            return "Account/Token"
+            return "api/Account/Token"
         
+        case .getReading:
+            return "Student/Reading"
+            
+        case .getProfile:
+            return "Student/GetStudentProfile"
+            
+        case .getHistory:
+            return "Student/GetStudentHistory"
         }
     }
     

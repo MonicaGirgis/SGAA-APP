@@ -14,8 +14,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(login), name: Notification.Name("unauthenticated"), object: nil)
+        
         return true
+    }
+    
+    @objc
+    func login (notification: NSNotification){
+        DispatchQueue.main.async {
+//            let login = mainS.instantiateViewController(withIdentifier: LoginVC.identifier)
+//            login.displayAlertWithPopup(message: "Unauthenticated user, please login again".localized)
+//            self.window?.rootViewController = login
+            
+            UserManager.shared.clearData()
+            let scene = UIApplication.shared.connectedScenes.first
+            if let sd: SceneDelegate = (scene?.delegate as? SceneDelegate){
+                sd.setController()
+            }
+        }
     }
 
     // MARK: UISceneSession Lifecycle

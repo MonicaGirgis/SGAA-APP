@@ -10,34 +10,114 @@ import UIKit
 class ReadingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    private var questions: [Question] = [Question(quesestion: "Heelo", answers: ["true", "wrong"]), Question(quesestion: "Heelo", answers: ["true", "wrong"]), Question(quesestion: "Heelo", answers: ["true", "wrong", "fdfdkf"]), Question(quesestion: "Heelo", answers: ["true", "wrong","true", "wrong"])]
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var textViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var dateView: UIView!
+    
+    
+    private var reading: Reading?
+    private var selectedAnswers: [AnswersModel] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
         registerCells()
+        fetchData()
     }
     
     private func registerCells() {
         tableView.registerCellNib(cellClass: AnswerTableViewCell.self)
     }
     
+    private func setupUI() {
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(collapseView))
+        dateView.addGestureRecognizer(gesture)
+    }
+    
+    @objc
+    private func collapseView() {
+        if textViewHeight.constant == 0{
+          setData()
+        }else {
+            textViewHeight.constant = 0
+        }
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func setData() {
+        guard let reading = reading else { return}
+        dateLabel.text = reading.date.getDate()
+        descTextView.text = reading.context
+        
+        if descTextView.contentSize.height >= 300{
+            textViewHeight.constant = 300
+        }else if descTextView.contentSize.height < 100{
+            textViewHeight.constant = 100
+        }
+        else {
+            textViewHeight.constant = descTextView.contentSize.height
+        }
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    private func fetchData() {
+        APIRoute.shared.fetchRequest(clientRequest: .getReading, decodingModel: Reading.self) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.reading = data
+                self?.setData()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        textViewHeight.constant = 0
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
 }
 
 extension ReadingViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return questions.count
+        return reading?.questions.count ?? 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions[section].answers.count + 1
+        return (reading?.questions[section].answers.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue() as AnswerTableViewCell
+        let answer = reading?.questions[indexPath.section].answers[indexPath.row]
+        let isSelected = selectedAnswers.first(where: { $0.questionId == reading?.questions[indexPath.section].id })?.answerId == answer?.id
+        cell.setData(txt: answer?.text ?? "", isSelected: isSelected)
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = HeaderOfQuestion()
+        let question = reading?.questions[section]
+        headerView.setData(text: question?.text ?? "")
         return headerView
     }
 
@@ -46,7 +126,7 @@ extension ReadingViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == questions.count - 1 {
+        if section == (reading?.questions.count ?? 0) - 1 {
         let footerView = SubmitView()
         return footerView
         } else {
@@ -55,17 +135,20 @@ extension ReadingViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == questions.count - 1 {
+        if section == (reading?.questions.count ?? 0) - 1 {
             return 50
         } else {
             return 0
         }
     }
     
-}
-
-
-struct Question {
-    let quesestion: String
-    let answers: [String]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let question = reading?.questions[indexPath.section]
+        if let index = selectedAnswers.firstIndex(where: { $0.questionId == question?.id }) {
+            selectedAnswers[index].answerId = question?.answers[indexPath.row].id ?? 0
+        }else{
+            selectedAnswers.append(AnswersModel(questionId: question?.id ?? 0, answerId: question?.answers[indexPath.row].id ?? 0))
+        }
+        tableView.reloadSections([indexPath.section], with: .automatic)
+    }
 }

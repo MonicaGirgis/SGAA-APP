@@ -31,7 +31,7 @@ enum APIError: Error, Equatable {
         case .FlagFound(let error):
             return error
         case .unauthenticated:
-            return ""
+            return "Unauthenticated"
         }
     }
 }

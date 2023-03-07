@@ -9,15 +9,16 @@ import UIKit
 
 class AnswerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var txtLabel: UILabel!
+    @IBOutlet weak var selectedImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    func setData(txt: String, isSelected: Bool) {
+        txtLabel.text = txt
+        selectedImageView.image = isSelected ? UIImage(named: "ic-radio-check") : UIImage(named: "ic-radio-uncheck")
+    }
 }

@@ -8,7 +8,9 @@
 import UIKit
 
 class HeaderOfQuestion: UIView {
+    
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var txtLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +26,11 @@ class HeaderOfQuestion: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+    }
+    
+    
+    func setData(text: String) {
+        txtLabel.text = text
     }
     
 }
