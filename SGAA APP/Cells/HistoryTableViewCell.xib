@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,18 +14,10 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="330" id="KGk-i7-Jjw" customClass="HistoryTableViewCell" customModule="SGAA_APP" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="442" height="330"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="442" height="330"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-jN-sfY">
-                        <rect key="frame" x="8" y="56" width="426" height="266"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="FAU-6L-VgC"/>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="SnY-gP-gzb"/>
-                        </connections>
-                    </tableView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lE-X2-Tx2">
                         <rect key="frame" x="8" y="8" width="426" height="40"/>
                         <subviews>
@@ -68,17 +61,14 @@
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="1lE-X2-Tx2" secondAttribute="trailing" constant="8" id="2Hh-Xb-2pF"/>
-                    <constraint firstAttribute="trailing" secondItem="aaM-jN-sfY" secondAttribute="trailing" constant="8" id="EiJ-c8-TJi"/>
-                    <constraint firstItem="aaM-jN-sfY" firstAttribute="top" secondItem="1lE-X2-Tx2" secondAttribute="bottom" constant="8" id="Qak-MP-5aA"/>
-                    <constraint firstItem="aaM-jN-sfY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RdZ-ZF-Aw5"/>
+                    <constraint firstAttribute="bottom" secondItem="1lE-X2-Tx2" secondAttribute="bottom" constant="8" id="Tjq-Dj-isF"/>
                     <constraint firstItem="1lE-X2-Tx2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Yu8-RC-IDn"/>
                     <constraint firstItem="1lE-X2-Tx2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bnD-Zx-cev"/>
-                    <constraint firstAttribute="bottom" secondItem="aaM-jN-sfY" secondAttribute="bottom" constant="8" id="keX-np-4t3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="tableView" destination="aaM-jN-sfY" id="jFK-qp-OKc"/>
+                <outlet property="dateLabel" destination="jhV-iI-kDa" id="0zL-ZH-zcv"/>
             </connections>
             <point key="canvasLocation" x="226.08695652173915" y="175.44642857142856"/>
         </tableViewCell>

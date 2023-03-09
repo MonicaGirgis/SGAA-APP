@@ -25,6 +25,7 @@ extension UIViewController {
     func presentAsActionSheetPopup(in parent: UIViewController, draggable: Bool = true, preferedHeight: CGFloat) -> STPopupController {
         contentSizeInPopup = CGSize(width: 0, height: preferedHeight)
         let popupController = STPopupController(rootViewController: self)
+        popupController.backgroundView?.backgroundColor = .black
         popupController.containerView.layer.cornerRadius = 16
         popupController.style = .bottomSheet
         popupController.navigationBar.barTintColor = .black

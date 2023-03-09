@@ -11,6 +11,8 @@ class SubmitView: UIView {
 
     @IBOutlet var contentView: UIView!
    
+    var didSubmit: (()->())?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadNib()
@@ -27,4 +29,7 @@ class SubmitView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
+    @IBAction func submitAction(_ snder: Any) {
+        
+    }
 }

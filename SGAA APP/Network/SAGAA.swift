@@ -13,7 +13,7 @@ enum SAGAA{
     case getReading
     case getProfile
     case getHistory
-    
+    case submitAnswers(answers: [AnswersModel], readingId: Int?)
 }
 
 extension Bundle {
@@ -48,12 +48,15 @@ extension SAGAA: Endpoint{
             
         case .getHistory:
             return "Student/GetStudentHistory"
+            
+        case .submitAnswers:
+            return "Reading/Submit"
         }
     }
     
     var method: HTTPMethod {
         switch self{
-        case .login:
+        case .login, .submitAnswers:
             return .post
         default:
             return .get
@@ -80,6 +83,15 @@ extension SAGAA: Endpoint{
         case .login(let username, let password):
             params["username"] = username
             params["password"] = password
+            
+            return params
+            
+        case .submitAnswers(let answers, let readingId):
+            if let readingId = readingId {
+                params["readingId"] = readingId
+                params["answers"] = answers.map({ $0.answerId })
+            }
+            
             return params
             
         default:

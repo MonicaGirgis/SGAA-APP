@@ -15,6 +15,9 @@ class ReadingViewController: UIViewController {
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
     @IBOutlet weak var dateView: UIView!
     
+    private lazy var loader: UIView = {
+       return createActivityIndicator(view)
+    }()
     
     private var reading: Reading?
     private var selectedAnswers: [AnswersModel] = []
@@ -75,7 +78,9 @@ class ReadingViewController: UIViewController {
     }
     
     private func fetchData() {
+        loader.isHidden = false
         APIRoute.shared.fetchRequest(clientRequest: .getReading, decodingModel: Reading.self) { [weak self] result in
+            self?.loader.isHidden = true
             switch result {
             case .success(let data):
                 self?.reading = data
@@ -83,6 +88,21 @@ class ReadingViewController: UIViewController {
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func submitAnswers() {
+        loader.isHidden = false
+        APIRoute.shared.fetchRequest(clientRequest: .submitAnswers(answers: selectedAnswers, readingId: reading?.id), decodingModel: String.self) { [weak self] result in
+            self?.loader.isHidden = true
+            switch result {
+            case .success(let data):
+                windows?.make(toast: data)
+                self?.selectedAnswers.removeAll()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                windows?.make(toast: error.localizedDescription)
             }
         }
     }
@@ -128,6 +148,9 @@ extension ReadingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == (reading?.questions.count ?? 0) - 1 {
         let footerView = SubmitView()
+            footerView.didSubmit = { [weak self] in
+                self?.submitAnswers()
+            }
         return footerView
         } else {
             return UIView()

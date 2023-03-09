@@ -48,6 +48,8 @@
 		C543CA0729B3E9FD0002ED84 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0529B3E9FC0002ED84 /* UserManager.swift */; };
 		C543CA0829B3E9FD0002ED84 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */; };
 		C543CA0A29B3EB450002ED84 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */; };
+		C59D4E1F29BA1025004E7F70 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59D4E1E29BA1025004E7F70 /* Helper.swift */; };
+		C59D4E2329BA116D004E7F70 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59D4E2229BA116D004E7F70 /* Toast.swift */; };
 		C5BE4FD529B7450A0098AC40 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BE4FD429B7450A0098AC40 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		C543CA0529B3E9FC0002ED84 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C543CA0629B3E9FC0002ED84 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		C59D4E1E29BA1025004E7F70 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		C59D4E2229BA116D004E7F70 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		C5BE4FD429B7450A0098AC40 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +162,8 @@
 		3A33AF7328B79AAB00C8EBFD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C59D4E2229BA116D004E7F70 /* Toast.swift */,
+				C59D4E1E29BA1025004E7F70 /* Helper.swift */,
 				C5BE4FD429B7450A0098AC40 /* String+Extensions.swift */,
 				C543CA0929B3EB450002ED84 /* Encodable+Extensions.swift */,
 				3A33AF7428B79ACC00C8EBFD /* UIView + EXT.swift */,
@@ -405,8 +411,10 @@
 				3A7D7CA828F5823A0026B13A /* HistoryDetailsTableViewCell.swift in Sources */,
 				3A103A3428F317D6002672BE /* AnswerTableViewCell.swift in Sources */,
 				3A33AF7528B79ACC00C8EBFD /* UIView + EXT.swift in Sources */,
+				C59D4E1F29BA1025004E7F70 /* Helper.swift in Sources */,
 				3A33AF5D28B792C600C8EBFD /* AppDelegate.swift in Sources */,
 				3A103A3728F324DA002672BE /* ReadingViewController.swift in Sources */,
+				C59D4E2329BA116D004E7F70 /* Toast.swift in Sources */,
 				C543CA0329B3E4930002ED84 /* APIHandler.swift in Sources */,
 				3A103A4128F37D9F002672BE /* HeaderOfQuestion.swift in Sources */,
 				C543CA0229B3E4930002ED84 /* APIRoute.swift in Sources */,

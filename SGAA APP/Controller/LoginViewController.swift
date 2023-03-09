@@ -13,6 +13,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    private lazy var loader: UIView = {
+       return createActivityIndicator(view)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.roundCorners(corners: [.bottomRight, .bottomLeft], radius: mainView.frame.width/2)
@@ -20,7 +24,9 @@ class LoginViewController: UIViewController {
     }
     
     private func login(userName: String, password: String) {
+        loader.isHidden = true
         APIRoute.shared.fetchRequest(clientRequest: .login(username: userName, password: password), decodingModel: User.self) { [weak self] result in
+            self?.loader.isHidden = false
             switch result {
             case .success(let data):
                 UserManager.shared.setUserData(user: data)
