@@ -74,10 +74,11 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 1:
             let cell = tableView.dequeue() as HistoryDetailsTableViewCell
-            cell.desc
+            cell.descLabel.text = history[indexPath.section].questionText
             return cell
         default:
             let cell = tableView.dequeue() as HistoryDetailsTableViewCell
+            cell.descLabel.text = history[indexPath.section].answers[indexPath.row - 2].text
             return cell
         }
     }
